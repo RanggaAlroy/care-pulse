@@ -207,7 +207,7 @@
   }
 
   .shad-textArea {
-    @apply bg-dark-400 placeholder:text-dark-600 border-dark-500 focus-visible:ring-0 focus-visible:ring-offset-0 !important;
+    @apply bg-dark-400 placeholder:text-dark-600 border-dark-500 focus-visible:ring-0 focus-visible:text-white focus-visible:ring-offset-0 !important;
   }
 
   .shad-combobox-item {
@@ -348,3 +348,5 @@
 .PhoneInputInput::placeholder {
   color: #1a1d21;
 }
+
+
