@@ -95,7 +95,7 @@ export const updateAppointment = async ({appointmentId, userId, appointment, typ
         }`
 
         await sendSMSNotification(userId, smsMessage)
-
+        
         revalidatePath("/admin")
         return parseStringify(updatedAppointment)
 
