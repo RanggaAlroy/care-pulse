@@ -282,6 +282,7 @@ const RegisterForm = ({ user }: { user: User }) => {
               name="allergies"
               label="Allergies (if any)"
               placeholder="Peanuts, Penicillin, Pollen"
+              class="xl:min-w-[400px]"
             />
 
             <CustomFormField
@@ -290,6 +291,7 @@ const RegisterForm = ({ user }: { user: User }) => {
               name="currentMedication"
               label="Current medications"
               placeholder="Ibuprofen 200mg, Levothyroxine 50mcg"
+              class="xl:min-w-[400px]"
             />
           </div>
 
@@ -301,6 +303,7 @@ const RegisterForm = ({ user }: { user: User }) => {
               name="familyMedicalHistory"
               label=" Family medical history (if relevant)"
               placeholder="Mother had brain cancer, Father has hypertension"
+              class="xl:min-w-[400px]"
             />
 
             <CustomFormField
@@ -309,6 +312,7 @@ const RegisterForm = ({ user }: { user: User }) => {
               name="pastMedicalHistory"
               label="Past medical history"
               placeholder="Appendectomy in 2015, Asthma diagnosis in childhood"
+              class="xl:min-w-[400px]"
             />
           </div>
         </section>

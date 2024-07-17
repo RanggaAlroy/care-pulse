@@ -15,7 +15,7 @@ import "react-phone-number-input/style.css";
 import PhoneInput from "react-phone-number-input";
 import "react-phone-number-input/style.css";
 import { E164Number } from "libphonenumber-js";
-import DatePicker from "react-datepicker";
+import ReactDatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { Select, SelectContent, SelectTrigger, SelectValue } from "./ui/select";
 import { Textarea } from "./ui/textarea";
@@ -43,6 +43,7 @@ interface customProps {
   dateFormat?: string;
   showTimeSelect?: boolean;
   children?: React.ReactNode;
+  class?: string;
   renderSkeleton?: (field: any) => React.ReactNode;
 }
 
@@ -104,12 +105,12 @@ const RenderField = ({ props, field }: { field: any; props: customProps }) => {
             className="ml-2"
           />
           <FormControl>
-            <DatePicker
+            <ReactDatePicker
+              showTimeSelect={props.showTimeSelect ?? false}
               selected={field.value}
-              onChange={(date) => field.onChange(date)}
-              dateFormat={dateFormat ?? "dd/MM/yyyy"}
-              showTimeSelect={showTimeSelect ?? false}
+              onChange={(date: any | Date) => field.onChange(date)}
               timeInputLabel="Time:"
+              dateFormat={props.dateFormat ?? "MM/dd/yyyy"}
               wrapperClassName="date-picker text-white"
             />
           </FormControl>
@@ -138,7 +139,7 @@ const RenderField = ({ props, field }: { field: any; props: customProps }) => {
           <Textarea
             placeholder={placeholder}
             {...field}
-            className="bg-dark-400 placeholder:text-dark-600 border-dark-500 focus-visible:ring-0 focus-visible:text-white focus-visible:ring-offset-0 xl:min-w-[400px]"
+            className={`bg-dark-400 placeholder:text-dark-600 border-dark-500 focus-visible:ring-0 focus-visible:text-white focus-visible:ring-offset-0 text-white ${props.class}`}
             disabled={props.disabled}
           />
         </FormControl>

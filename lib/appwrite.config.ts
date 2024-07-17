@@ -1,7 +1,5 @@
 import * as sdk from "node-appwrite";
 
-
-
 export const ENDPOINT = process.env.NEXT_PUBLIC_ENDPOINT;
 export const PROJECT_ID = process.env.PROJECT_ID;
 export const API_KEY = process.env.API_KEY;
@@ -21,6 +19,7 @@ const client = new sdk.Client()
   export const databases = new sdk.Databases(client);
   export const users = new sdk.Users(client);
   export const storage = new sdk.Storage(client);
+  export const messaging = new sdk.Messaging(client);
 
   
 
