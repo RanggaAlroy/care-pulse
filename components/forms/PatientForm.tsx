@@ -1,16 +1,18 @@
 "use client";
 
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useRouter } from "next/navigation";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 
 import { Form } from "@/components/ui/form";
+import { createUser } from "@/lib/actions/patient.action";
+import { UserFormValidation } from "@/lib/validation";
+
+import "react-phone-number-input/style.css";
 import CustomFormField, { FormFieldType } from "../CustomFormField";
 import SubmitButton from "../SubmitButton";
-import { useState } from "react";
-import { UserFormValidation } from "@/lib/validation";
-import { useRouter } from "next/navigation";
-import { createUser } from "@/lib/actions/patient.action";
 
 const PatientForm = () => {
   const router = useRouter();
@@ -25,30 +27,25 @@ const PatientForm = () => {
     },
   });
 
-  async function onSubmit({
-    name,
-    email,
-    phone,
-  }: z.infer<typeof UserFormValidation>) {
+  const onSubmit = async (values: z.infer<typeof UserFormValidation>) => {
     setIsLoading(true);
 
     try {
       const userData = {
-        name: name,
-        email: email,
-        phone: phone,
+        name: values.name,
+        email: values.email,
+        phone: values.phone,
       };
       const user = await createUser(userData);
       if (user) {
         router.push(`/patients/${user.$id}/register`);
-        form.reset(); // Reset the form after successful submission
       }
     } catch (error) {
       console.error(error);
     }
 
     setIsLoading(false);
-  }
+  };
 
   return (
     <Form {...form}>
