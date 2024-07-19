@@ -10,7 +10,7 @@ export default function Home({ searchParams }: SearchParamProps) {
     <div className="flex h-screen max-h-screen">
       {isAdmin && <PasskeyModal />}
 
-      <section className="remove-scrollbar container pt-32">
+      <section className="remove-scrollbar container py-20">
         <div className="sub-container max-w-[496px] flex-1">
           <Image
             src="/assets/icons/logo-full.svg"
@@ -20,7 +20,7 @@ export default function Home({ searchParams }: SearchParamProps) {
             className="mb-12 h-10 w-fit"
           />
           <PatientForm />
-          <div className="text-14-regular flex justify-between mt-20">
+          <div className="text-14-regular flex justify-between xl:mt-20 mt-10 py-12">
             <p className="text-dark-600 justify-items-end xl:text-left">
               © 2024 CarePulse. All rights reserved.
             </p>
